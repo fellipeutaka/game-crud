@@ -24,7 +24,7 @@ export async function addGame({
   });
 }
 
-export async function updateGame({
+export async function updateGameById({
   id,
   name,
   description,
@@ -39,15 +39,15 @@ export async function updateGame({
       releaseDate,
     },
     where: {
-      id: String(id),
+      id,
     },
   });
 }
 
-export async function deleteGame({ id }: Game) {
+export async function deleteGameById(id: string) {
   await prisma.games.delete({
     where: {
-      id: String(id),
+      id,
     },
   });
 }

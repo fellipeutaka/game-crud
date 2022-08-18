@@ -7,15 +7,18 @@ import {
   ButtonGroup,
   Flex,
   Heading,
+  Text,
   useDisclosure,
 } from "@chakra-ui/react";
 import { Games as Game } from "@prisma/client";
+import Lottie from "lottie-react";
 
-import CreateModal from "../components/Modal/CreateModal";
-import Seo from "../components/Seo";
-import Body from "../components/Table/Body";
-import Head from "../components/Table/Head";
-import Loading from "../screens/Loading";
+import animation from "@game-crud/assets/lottie-sad.json";
+import CreateModal from "@game-crud/components/Modal/CreateModal";
+import Seo from "@game-crud/components/Seo";
+import Body from "@game-crud/components/Table/Body";
+import Head from "@game-crud/components/Table/Head";
+import Loading from "@game-crud/screens/Loading";
 
 async function fetchGames() {
   const response = await fetch("/api/games");
@@ -97,7 +100,16 @@ export default function Admin() {
           </ButtonGroup>
         </Flex>
         {isGameListEmpty ? (
-          <p>No game ;-;</p>
+          <Flex flexDir="column" alignItems="center">
+            <Text fontSize="3xl" fontWeight="bold">
+              No game
+            </Text>
+            <Lottie
+              animationData={animation}
+              loop
+              style={{ width: "25vw", height: "25vh" }}
+            />
+          </Flex>
         ) : (
           <Box overflowX="auto" shadow="md" rounded="lg" w="50%">
             <Box

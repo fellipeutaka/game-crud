@@ -3,7 +3,8 @@ import { Dispatch, SetStateAction } from "react";
 import { Box } from "@chakra-ui/react";
 import { Games as Game } from "@prisma/client";
 
-import { displayPrice } from "../../utils/displayPrice";
+import { displayPrice } from "@game-crud/utils/displayPrice";
+
 import Menu from "../Menu";
 
 type BodyProps = {

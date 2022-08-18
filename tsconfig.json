@@ -13,7 +13,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@game-crud/components/*": ["./src/components/*"],
+      "@game-crud/lib/*": ["./src/lib/*"],
+      "@game-crud/screens/*": ["./src/screens/*"],
+      "@game-crud/services/*": ["./src/services/*"],
+      "@game-crud/theme": ["./src/theme"],
+      "@game-crud/utils/*": ["./src/utils/*"],
+      "@game-crud/assets/*": ["./src/assets/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

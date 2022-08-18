@@ -1,6 +1,6 @@
 import { Grid, Spinner } from "@chakra-ui/react";
 
-import Seo from "../components/Seo";
+import Seo from "@game-crud/components/Seo";
 
 export default function Loading() {
   return (

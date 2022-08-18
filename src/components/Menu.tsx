@@ -12,8 +12,8 @@ import {
 } from "@chakra-ui/react";
 import { Games as Game } from "@prisma/client";
 
-import AlertDialog from "./AlertDialog";
-import UpdateModal from "./Modal/UpdateModal";
+import AlertDialog from "@game-crud/components/AlertDialog";
+import UpdateModal from "@game-crud/components/Modal/UpdateModal";
 
 type MenuProps = {
   game: Game;

@@ -1,7 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { prisma } from "../../lib/prisma";
-import { addGame, getGames } from "../../services/games";
+import {
+  addGame,
+  deleteGameById,
+  getGames,
+  updateGameById,
+} from "@game-crud/services/games";
 
 export default async function games(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "GET") {
@@ -34,16 +38,12 @@ export default async function games(req: NextApiRequest, res: NextApiResponse) {
       return res.status(400).json({ message: "Invalid params" });
     }
 
-    await prisma.games.update({
-      data: {
-        name,
-        description,
-        price,
-        releaseDate,
-      },
-      where: {
-        id: String(id),
-      },
+    await updateGameById({
+      id: String(id),
+      name,
+      description,
+      price,
+      releaseDate,
     });
     return res.status(200).json({ status: "OK" });
   } else if (req.method === "DELETE") {
@@ -51,11 +51,7 @@ export default async function games(req: NextApiRequest, res: NextApiResponse) {
     if (!id) {
       return res.status(400).json({ message: "Id is required" });
     }
-    await prisma.games.delete({
-      where: {
-        id: String(id),
-      },
-    });
+    await deleteGameById(String(id));
     return res.status(200).json({ status: "OK" });
   } else {
     return res.status(400).json({ message: "Invalid method" });
