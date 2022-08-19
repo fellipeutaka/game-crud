@@ -71,6 +71,8 @@ export default function Admin() {
           justifyContent="space-between"
           alignItems="center"
           w="50%"
+          flexDir={["column", "column", "row"]}
+          gap={[2, 2, 0]}
         >
           <Heading as="h1" size="2xl" fontWeight="bold">
             Games
