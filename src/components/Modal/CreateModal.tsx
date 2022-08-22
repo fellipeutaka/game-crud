@@ -52,7 +52,11 @@ export default function CreateModal({
     e.preventDefault();
     const { name, description, price, releaseDate } = formData;
     if (!name || !description || !price || !releaseDate) {
-      alert("All fields are required!");
+      toast({
+        title: "Error",
+        description: "All fields are required!",
+        status: "error",
+      });
     } else {
       const newGame = {
         id: crypto.randomUUID(),

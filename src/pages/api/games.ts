@@ -34,7 +34,7 @@ export default async function games(req: NextApiRequest, res: NextApiResponse) {
     }
     const { name, description, price, releaseDate } = req.body;
 
-    if (!name || !description || !price || !releaseDate) {
+    if (!name || !description || isNaN(price) || !releaseDate) {
       return res.status(400).json({ message: "Invalid params" });
     }
 
